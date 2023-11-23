@@ -1,0 +1,105 @@
+###
+GET http://localhost:3000/api/pages
+
+
+###    CREATOR
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+    "username":"tester@polito.it",
+    "password":"password"
+}
+
+###    ADMIN
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+    "username":"filippo@polito.it",
+    "password":"secure"
+}
+
+
+###
+POST http://localhost:3000/api/tester/create
+
+###
+
+GET http://localhost:3000/api/pages/2
+
+###
+
+POST http://localhost:3000/api/create
+Content-type: application/json
+
+{
+    "title":"prova7910",
+    "publicationDate":"2023-07-31",
+    "content":[
+        {
+            "type":"header",
+            "value":"first title",
+            "order": 0
+        }, {
+            "type":"paragraph",
+            "value":"first paragraph",
+            "order": 1
+        }
+    ]
+}
+
+###
+PUT http://localhost:3000/api/20/edit
+Content-type: application/json
+
+{
+    "title":"   sixthvm    ",
+    "content": [
+        {
+            "cid":11,
+            "value":"Edited",
+            "order":4
+        }
+    ]
+}
+
+    // could be an object containing an array of objects that can be
+    //  - {"cid":id, "type":"header", "value":"An header", "order":1}
+    //  - {"cid":id, "type":"image", "value":"../imgs/cat.png", "order":2}
+    //  - {"cid":id, "type":"paragraph", "value":"Some text", "order":3}
+
+
+### for admins
+
+PUT http://localhost:3000/api/5/edit
+Content-type: application/json
+
+{
+    "title":"   test0",
+    "newAuthorID": 3
+}
+
+
+###
+DELETE http://localhost:3000/api/19/delete
+
+
+###
+
+POST http://localhost:3000/api/logout
+
+###
+
+POST http://localhost:3000/api/pages/6/addContent
+Content-type: application/json
+
+{
+        "content":[
+        {
+            "type":"header",
+            "value":"first title",
+        }
+    ]
+
+}
